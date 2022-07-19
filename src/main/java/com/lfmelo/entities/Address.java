@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.lfmelo.entities.dto.AddressDTO;
+
 @Entity(name = "TB_ADDRESS")
 public class Address {
 	@Id
@@ -40,7 +42,17 @@ public class Address {
 		this.cep = cep;
 		this.locality = locality;
 	}
-
+	
+	
+	public Address(AddressDTO dto) {
+		this.street = dto.getStreet();
+		this.neighborhood = dto.getNeighborhood();
+		this.number = dto.getNumber();
+		this.complement = dto.getComplement();
+		this.uf = dto.getUf();
+		this.cep = dto.getCep();
+		this.locality = dto.getLocality();
+	}
 
 
 	public Integer getId() {
