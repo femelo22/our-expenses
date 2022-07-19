@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.lfmelo.entities.dto.PersonDTO;
+
 @Entity(name = "TB_PERSON")
 public class Person {
 	
@@ -24,13 +26,15 @@ public class Person {
 	
 	public Person() {}
 	
-
 	public Person(String name, Address address) {
 		super();
 		this.name = name;
 		this.address = address;
 	}
-
+	
+	public Person(PersonDTO dto) {
+		this.name = dto.getName();	
+	}
 
 	public Integer getId() {
 		return id;
@@ -47,6 +51,15 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
 	
 	
 }
