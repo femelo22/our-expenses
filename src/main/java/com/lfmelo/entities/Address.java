@@ -15,6 +15,8 @@ public class Address {
 	
 	private String neighborhood;
 	
+	private String number;
+	
 	private String complement;
 	
 	private String uf;
@@ -26,6 +28,22 @@ public class Address {
 	public Address() {
 		
 	}
+	
+	
+
+	public Address(String street, String neighborhood,String number, String complement, String uf, String cep,
+			String locality) {
+		super();
+		this.street = street;
+		this.neighborhood = neighborhood;
+		this.number = number;
+		this.complement = complement;
+		this.uf = uf;
+		this.cep = cep;
+		this.locality = locality;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -55,6 +73,14 @@ public class Address {
 
 	public String getComplement() {
 		return complement;
+	}
+	
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public void setComplement(String complement) {

@@ -36,6 +36,28 @@ public class Expense {
 	
 
 	public Expense() {}
+	
+
+	public Expense(String description, String type, BigDecimal value, LocalDateTime releaseDate, Person person) {
+		super();
+		this.description = description;
+		this.type = type;
+		this.value = value;
+		this.releaseDate = releaseDate;
+		this.person = person;
+	}
+
+
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+
 
 	public Integer getId() {
 		return id;

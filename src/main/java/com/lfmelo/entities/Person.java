@@ -23,6 +23,14 @@ public class Person {
 	private Address address;
 	
 	public Person() {}
+	
+
+	public Person(String name, Address address) {
+		super();
+		this.name = name;
+		this.address = address;
+	}
+
 
 	public Integer getId() {
 		return id;
