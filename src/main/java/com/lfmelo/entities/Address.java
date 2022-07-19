@@ -29,8 +29,6 @@ public class Address {
 		
 	}
 	
-	
-
 	public Address(String street, String neighborhood,String number, String complement, String uf, String cep,
 			String locality) {
 		super();
