@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.lfmelo.entities.dto.ExpenseDTO;
+
 @Entity(name = "TB_EXPENSE")
 public class Expense {
 
@@ -47,7 +49,12 @@ public class Expense {
 		this.person = person;
 	}
 
-
+	public Expense(ExpenseDTO dto) {
+		this.description = dto.getDescription();
+		this.type = dto.getType();
+		this.value = dto.getValue();
+		this.releaseDate = LocalDateTime.now();
+	}
 
 	public Person getPerson() {
 		return person;
