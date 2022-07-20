@@ -3,8 +3,11 @@ package com.lfmelo.entities;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,6 +34,10 @@ public class Expense {
 	
 	@Column
 	private LocalDateTime releaseDate;
+	
+	@Column
+	@Enumerated(EnumType.STRING)
+	private ExpenseStatus status;
 	
 	@ManyToOne
 	@JoinColumn(name = "person")
@@ -104,6 +111,16 @@ public class Expense {
 
 	public void setReleaseDate(LocalDateTime releaseDate) {
 		this.releaseDate = releaseDate;
+	}
+
+
+	public ExpenseStatus getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(ExpenseStatus status) {
+		this.status = status;
 	}
 	
 	

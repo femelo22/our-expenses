@@ -25,4 +25,7 @@ public class ExpenseService {
 		expense.setPerson(person);
 		return this.repo.save(expense);
 	}
+	
+	
+	//TODO: SERVIÇO PARA PAGAR UMA DESPESA (FECHAR O STATUS)
 }
