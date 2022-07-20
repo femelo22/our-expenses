@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.lfmelo.entities.Address;
 import com.lfmelo.entities.Expense;
 import com.lfmelo.entities.ExpenseStatus;
 import com.lfmelo.entities.Person;
@@ -34,14 +33,19 @@ public class ExpenseService {
 	}
 	
 	
-	//TODO: SERVIÇO PARA PAGAR UMA DESPESA (FECHAR O STATUS)
-	public String calculateExpenses(LocalDateTime startDate, LocalDateTime endDate, Person person) {
+	public String calculateExpenses(LocalDateTime startDate, LocalDateTime endDate, Integer personId) {
+		
+		Person person = this.personService.findById(personId);
+		
 		List<Expense> expenses = this.repo.findByReleaseDateBetweenAndPerson(startDate, endDate, person);
 		
-		BigDecimal value = new BigDecimal(0.1);
+		BigDecimal value = BigDecimal.ZERO;
+		
+		//TODO: FAZER VALIDAÇÃO PARA DESPESAS ABERTAS
 		
 		for (Expense expense : expenses) {
-			value.add(expense.getValue());
+			System.out.println(expense.getValue());
+			value = value.add(expense.getValue());
 		}
 		
 		return person.getName() + " deve pagar um total de " + value;
